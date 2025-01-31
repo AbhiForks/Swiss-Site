@@ -3,18 +3,30 @@
 }
 
 @font-face {
-  font-family: domain;
-  src: url(./domain.ttf);
+  font-family: 'canopee';
+  src: url('./neon.ttf') format('truetype');
+}
 
-}
 @font-face {
-  font-family: sludge;
-  src: url(./sludge.ttf);
+  font-family: 'sludge';
+  src: url('./sludge.ttf') format('truetype');
 }
+
 @font-face {
-  font-family: canopee;
-  src: url(./neon.ttf);
+  font-family: 'domain';
+  src: url('./domain.ttf') format('truetype');
 }
+body {
+  font-family: 'canopee', 'Arial', sans-serif;
+}
+body {
+  font-size: 2vw; /* Responsive to the viewport size */
+}
+
+h1, h2, h3 {
+  font-size: 4vw; /* Scales header sizes */
+}
+
 *{
   margin: 0;padding: 0;
   box-sizing: border-box;
@@ -623,23 +635,23 @@ background-color: #1C1B19;
 }
 .rotate{display: none;}
 /*media queries*/
-@media screen and (max-width:648px) {
-  .rotate{
-      display: contents;
-      z-index: 1000;
-      height: 100vh;
-      width: 100vw;
-      position: absolute;
-      display: flex;
+@media screen and (max-width: 648px) {
+  .rotate {
+      display: flex; /* Use flex for layout instead of display: contents */
       justify-content: center;
       align-items: center;
       font-family: sludge;
       background-color: #CDC6BE;
-      font-size: 4vw;
+      font-size: 5vw; /* Slightly larger for mobile readability */
       text-align: center;
+      height: 100vh; 
+      width: 100vw;
+      position: absolute;
+      z-index: 1000; /* Make sure it's above everything else */
   }
-  #main{
-      display: none;
-      z-index: -100;
+  
+  #main {
+      visibility: hidden; /* Use visibility instead of z-index for clean hide/show */
+      z-index: -1; /* Keep it behind the .rotate content */
   }
 }
